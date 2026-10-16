@@ -6,7 +6,7 @@ export default function Home() {
   return <>
     <header className="nav">
       <Link href="/" className="brand">▣ <b>CINE <i>ELECTRO</i><small>TECSUP AREQUIPA</small></b></Link>
-      <nav><a href="#peliculas">Películas</a><a href="#snacks">Snacks</a><Link href="/mi-reserva">Consultar reserva</Link><Link href="/admin">Administración</Link></nav>
+      <nav><a href="#peliculas">Películas</a><a href="#snacks">Snacks</a><Link href="/mi-reserva">Consultar reserva</Link><a href="https://cine-electro-admin-2026.alyson-diaz.chatgpt.site">Administración privada</a></nav>
       <Link className="cta" href="/comprar">Comprar entradas</Link>
     </header>
     <main>
@@ -20,6 +20,6 @@ export default function Home() {
       </section>
       <section className="section" id="snacks"><span className="eyebrow">DULCERÍA</span><h2>Completa tu experiencia</h2><div className="snackGrid">{SNACKS.map(s => <article key={s.id}><span>{s.emoji}</span><h3>{s.name}</h3><b>S/ {s.price.toFixed(2)}</b></article>)}</div><div className="links"><a href="https://chat.whatsapp.com/EP1Gc78fYXRLtpQhjZBN6d">Grupo de WhatsApp ↗</a><a href="https://docs.google.com/forms/d/e/1FAIpQLSc4OnD10AlHvLVUtsh_YSbAWyyJG4-IvUHNI5ANd8mKzFww4g/viewform?usp=dialog">Encuesta de películas ↗</a></div></section>
     </main>
-    <footer>CINE ELECTRO ⚡ · TECSUP AREQUIPA <Link href="/admin">⚙ Abrir panel administrativo</Link></footer>
+    <footer>CINE ELECTRO ⚡ · TECSUP AREQUIPA <a href="https://cine-electro-admin-2026.alyson-diaz.chatgpt.site">🔒 Administración privada</a></footer>
   </>;
 }
