@@ -1,2 +1,25 @@
-import Image from 'next/image';import Link from 'next/link';import {EVENT,FILMS,SNACKS} from '@/lib/config';
-export default function Home(){return <><header className="nav"><Link href="/" className="brand">▣ <b>CINE <i>ELECTRO</i><small>TECSUP AREQUIPA</small></b></Link><nav><a href="#peliculas">Películas</a><a href="#snacks">Snacks</a><Link href="/mi-reserva">Consultar reserva</Link></nav><Link className="cta" href="/comprar">Comprar entradas</Link></header><main><section className="hero"><div><span className="eyebrow">UN EVENTO HECHO POR ELECTRO</span><h1>CINE <strong>ELECTRO</strong></h1><h2>{EVENT.subtitle}</h2><p>{EVENT.organizer}</p><p>¡Acompáñanos a inaugurar la nueva adquisición de proyección y sonido en el Auditorio R!</p><Link className="cta" href="/comprar">Comprar entradas →</Link></div><aside><p>📅 <b>{EVENT.date}</b></p><p>📍 <b>{EVENT.venue}</b></p><p>🎟️ <b>S/ 3 por entrada</b></p><p>⚡ <b>200 entradas por película</b></p></aside></section><section className="section" id="peliculas"><div className="sectionTitle"><div><span className="eyebrow">CARTELERA</span><h2>Películas en cartelera</h2></div><b>400 entradas en total</b></div><div className="movieGrid">{FILMS.map(f=><article className="movie" key={f.id}><Image src={f.image} alt={`Arte conceptual de ${f.title}`} width={600} height={800}/><div><span>{f.genre}</span><h3>{f.title}</h3><p>🕒 {f.schedule}</p><p>🎟️ {f.capacity} disponibles</p><p>S/ {EVENT.ticketPrice.toFixed(2)}</p><Link className="cta" href={`/comprar?pelicula=${f.id}`}>Comprar entradas →</Link></div></article>)}</div></section><section className="section" id="snacks"><span className="eyebrow">DULCERÍA</span><h2>Completa tu experiencia</h2><div className="snackGrid">{SNACKS.map(s=><article key={s.id}><span>{s.emoji}</span><h3>{s.name}</h3><b>S/ {s.price.toFixed(2)}</b></article>)}</div><div className="links"><a href="https://chat.whatsapp.com/EP1Gc78fYXRLtpQhjZBN6d">Grupo de WhatsApp ↗</a><a href="https://docs.google.com/forms/d/e/1FAIpQLSc4OnD10AlHvLVUtsh_YSbAWyyJG4-IvUHNI5ANd8mKzFww4g/viewform?usp=dialog">Encuesta de películas ↗</a></div></section></main><footer>CINE ELECTRO ⚡ · TECSUP AREQUIPA <Link href="/admin">Administración</Link></footer></>}
+import Image from "next/image";
+import Link from "next/link";
+import { EVENT, FILMS, SNACKS } from "@/lib/config";
+
+export default function Home() {
+  return <>
+    <header className="nav">
+      <Link href="/" className="brand">▣ <b>CINE <i>ELECTRO</i><small>TECSUP AREQUIPA</small></b></Link>
+      <nav><a href="#peliculas">Películas</a><a href="#snacks">Snacks</a><Link href="/mi-reserva">Consultar reserva</Link><Link href="/admin">Administración</Link></nav>
+      <Link className="cta" href="/comprar">Comprar entradas</Link>
+    </header>
+    <main>
+      <section className="hero">
+        <div><span className="eyebrow">UN EVENTO HECHO POR ELECTRO</span><h1>CINE <strong>ELECTRO</strong></h1><h2>{EVENT.subtitle}</h2><p>{EVENT.organizer}</p><p>¡Acompáñanos a inaugurar la nueva adquisición de proyección y sonido en el Auditorio R!</p><Link className="cta" href="/comprar">Comprar entradas →</Link></div>
+        <aside><p>📅 <b>{EVENT.date}</b></p><p>📍 <b>{EVENT.venue}</b></p><p>🎟️ <b>S/ 3 por entrada</b></p><p>⚡ <b>200 entradas por película</b></p></aside>
+      </section>
+      <section className="section" id="peliculas">
+        <div className="sectionTitle"><div><span className="eyebrow">CARTELERA</span><h2>Películas en cartelera</h2></div><b>400 entradas en total</b></div>
+        <div className="movieGrid">{FILMS.map(f => <article className="movie" key={f.id}><Image src={f.image} alt={`Arte conceptual de ${f.title}`} width={600} height={800}/><div><span>{f.genre}</span><h3>{f.title}</h3><p>🕒 {f.schedule}</p><p>🎟️ {f.capacity} disponibles</p><p>S/ {EVENT.ticketPrice.toFixed(2)}</p><Link className="cta" href={`/comprar?pelicula=${f.id}`}>Comprar entradas →</Link></div></article>)}</div>
+      </section>
+      <section className="section" id="snacks"><span className="eyebrow">DULCERÍA</span><h2>Completa tu experiencia</h2><div className="snackGrid">{SNACKS.map(s => <article key={s.id}><span>{s.emoji}</span><h3>{s.name}</h3><b>S/ {s.price.toFixed(2)}</b></article>)}</div><div className="links"><a href="https://chat.whatsapp.com/EP1Gc78fYXRLtpQhjZBN6d">Grupo de WhatsApp ↗</a><a href="https://docs.google.com/forms/d/e/1FAIpQLSc4OnD10AlHvLVUtsh_YSbAWyyJG4-IvUHNI5ANd8mKzFww4g/viewform?usp=dialog">Encuesta de películas ↗</a></div></section>
+    </main>
+    <footer>CINE ELECTRO ⚡ · TECSUP AREQUIPA <Link href="/admin">⚙ Abrir panel administrativo</Link></footer>
+  </>;
+}
