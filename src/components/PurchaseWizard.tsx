@@ -50,7 +50,7 @@ export default function PurchaseWizard() {
     data.set("privacy", "true"); data.set("proof", proof);
     setError("");
     try {
-      const response = await fetch("/api/reservations", { method: "POST", body: data });
+      const response = await fetch("https://cine-electro-admin-2026.alyson-diaz.chatgpt.site/api/reservations", { method: "POST", body: data });
       const payload = await response.json();
       if (!response.ok) throw new Error(payload.error || "No se pudo registrar la solicitud.");
       setResult(payload.code);
