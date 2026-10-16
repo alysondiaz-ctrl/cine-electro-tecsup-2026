@@ -1,0 +1,2 @@
+import {describe,it,expect} from 'vitest';import {calculateTotal,inventoryUse} from './pricing';
+describe('pricing',()=>{it('calcula entradas y combo',()=>{expect(calculateTotal(2,{popcorn:0,gaseosa:0,combo:1})).toBe(11)});it('limita a seis entradas',()=>{expect(()=>calculateTotal(7,{popcorn:0,gaseosa:0,combo:0})).toThrow()});it('el combo descuenta ambos productos',()=>{expect(inventoryUse({popcorn:2,gaseosa:1,combo:3})).toEqual({popcorn:5,gaseosa:4})})});

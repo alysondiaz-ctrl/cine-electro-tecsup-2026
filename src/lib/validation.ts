@@ -1,0 +1,2 @@
+import {z} from 'zod';
+export const reservationSchema=z.object({filmId:z.enum(['demon-slayer','el-rito']),ticketQty:z.coerce.number().int().min(1).max(6),popcorn:z.coerce.number().int().min(0).max(20),gaseosa:z.coerce.number().int().min(0).max(20),combo:z.coerce.number().int().min(0).max(20),name:z.string().trim().min(5).max(120),phone:z.string().regex(/^[0-9 +()-]{9,20}$/),email:z.email(),studentCode:z.string().trim().max(30).optional(),privacy:z.literal('true')});

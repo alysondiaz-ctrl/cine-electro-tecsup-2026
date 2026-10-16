@@ -1,0 +1,2 @@
+import {NextResponse} from 'next/server';import {z} from 'zod';import {adminDb} from '@/lib/supabase-admin';
+export async function POST(req:Request){try{const {token}=z.object({token:z.uuid()}).parse(await req.json()),db=adminDb(),{data,error}=await db.rpc('check_in_ticket_atomic',{p_token:token});if(error)throw error;return NextResponse.json(data);}catch(error){return NextResponse.json({ok:false,message:error instanceof Error?error.message:'Entrada inválida'},{status:400})}}
